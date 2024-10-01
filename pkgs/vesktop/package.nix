@@ -6,8 +6,8 @@
 # Slightly bugged right now. The xdg-desktop-portal file picker doesn't work. Not sure why
 mkNixPak {
   config = {sloth, ...}: {
-    app.package = pkgs.vesktop; # Replace with the actual app package
-    flatpak.appId = "dev.vencord.Vesktop"; # Replace with your app ID
+    app.package = pkgs.vesktop;
+    flatpak.appId = "dev.vencord.Vesktop";
 
     imports = [
       ../../modules/network.nix
@@ -23,11 +23,6 @@ mkNixPak {
 
     bubblewrap = {
       shareIpc = true;
-      sockets = {
-        wayland = true; # Enable Wayland socket
-        x11 = true; # Enable X11 socket
-        pulse = true; # Enable Pulseaudio socket
-      };
       bind.ro = [
         sloth.xdgVideosDir # Read-only access to Videos
         sloth.xdgPicturesDir # Read-only access to Pictures

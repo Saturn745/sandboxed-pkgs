@@ -15,12 +15,6 @@ mkNixPak {
     bubblewrap = {
       shareIpc = true;
 
-      sockets = {
-        wayland = true;
-        x11 = true;
-        pulse = true;
-      };
-
       bind.rw = [
         "/tmp/.X11-unix"
         (sloth.concat' sloth.homeDir "/.local/share/PrismLauncher/") # Bind the PrismLauncher data directory

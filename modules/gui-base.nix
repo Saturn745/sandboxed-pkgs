@@ -21,9 +21,15 @@ in {
     };
     gpu.enable = lib.mkDefault true;
     gpu.provider = "bundle";
+
     fonts.enable = true;
     locale.enable = true;
     bubblewrap = {
+      sockets = {
+        wayland = lib.mkDefault true; # Enable Wayland socket
+        x11 = lib.mkDefault true; # Enable X11 socket
+        pulse = lib.mkDefault true; # Enable Pulseaudio socket
+      };
       network = lib.mkDefault false;
       bind.rw = [
         [
