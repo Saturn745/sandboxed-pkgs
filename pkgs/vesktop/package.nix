@@ -9,6 +9,11 @@ mkNixPak {
     app.package = pkgs.vesktop; # Replace with the actual app package
     flatpak.appId = "dev.vencord.Vesktop"; # Replace with your app ID
 
+    imports = [
+      ../../modules/network.nix
+      ../../modules/gui-base.nix
+    ];
+
     # Enable D-Bus and set policies
     dbus.enable = true;
 
