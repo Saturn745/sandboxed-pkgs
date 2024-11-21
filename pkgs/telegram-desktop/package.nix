@@ -24,8 +24,9 @@ mkNixPak {
     };
 
     bubblewrap = {
+      shareIpc = true;
       bind.rw = [
-        (sloth.concat' sloth.homeDir "/.local/share/TelegramDesktop/") # Bind the PrismLauncher data directory
+        (sloth.concat' sloth.homeDir "/.local/share/TelegramDesktop/")
         sloth.xdgDownloadDir # Telegram automatically saves downloaded files to "Downloads/Telegram Downloads"
         (sloth.concat' (sloth.env "XDG_RUNTIME_DIR") "/pipewire-0") # Pipewire interfacing
       ];
