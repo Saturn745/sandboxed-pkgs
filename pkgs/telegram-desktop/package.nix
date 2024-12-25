@@ -8,8 +8,8 @@ mkNixPak {
     app.package = pkgs.telegram-desktop;
     flatpak.appId = "org.telegram.desktop";
     imports = [
-      ../../modules/network.nix # Updated path for network module
-      ../../modules/gui-base.nix # Updated path for GUI-related configurations
+      ../../modules/network.nix
+      ../../modules/gui-base.nix
     ];
 
     # Enable D-Bus and set policies
